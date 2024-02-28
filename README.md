@@ -30,22 +30,7 @@ use actix_web::web;
                     HeaderName::from_static("x-app-time-ms"),
                     HeaderValue::from_str(&format!("{}", duration.num_milliseconds()))?,
                 );
-                res.headers_mut().insert(
-                    HeaderName::from_static("x-app-time-micros"),
-                    HeaderValue::from_str(&format!(
-                        "{}",
-                        duration.num_microseconds().unwrap_or_default()
-                    ))?,
-                );
-                // CORS header
-                res.headers_mut().insert(
-                    HeaderName::from_static("access-control-allow-origin"),
-                    HeaderValue::from_str("*")?,
-                );
-                res.headers_mut().insert(
-                    HeaderName::from_static("access-control-allow-methods"),
-                    HeaderValue::from_str("GET, POST, OPTIONS")?,
-                );
+
                 Ok(res)
             })
         }
