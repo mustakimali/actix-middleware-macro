@@ -2,27 +2,30 @@ name: Rust
 
 on:
   push:
-    branches: [ "ci" ]
+    branches: ["*"]
   pull_request:
-    branches: [ "ci" ]
+    branches: ["*"]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - run: rustup toolchain install stable --profile minimal
-    
-    - uses: Swatinem/rust-cache@v2
-      with:
-        shared-key: "later"
-
-    - uses: actions/checkout@v3
-    - name: Run tests
-      run: cargo test --all
-    - name: Run doctests
-      run: cargo test --doc
+      - run: rustup toolchain install stable --profile minimal
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "later"
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cargo test --all
+  doctest:
+    runs-on: ubuntu-latest
+    steps:
+      - run: rustup toolchain install stable --profile minimal
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "later"
+      - name: Run doctests
+        run: cargo test --doc
