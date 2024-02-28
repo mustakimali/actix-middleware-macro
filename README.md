@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/mustakimali/actix-middleware-macro/actions/workflows/rust.yml/badge.svg)](https://github.com/mustakimali/actix-middleware-macro/actions/workflows/rust.yml)
 [![Latest Version](https://img.shields.io/crates/v/actix-middleware-macro.svg)](https://crates.io/crates/actix-middleware-macro)
-[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/actix-midd/)
+[![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/actix-middleware-macro/)
 
 A macro to generate actix-web middleware. Useful for the times when you can't be bothered to figure it out yourself for the 100th time.
 
